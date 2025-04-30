@@ -10,8 +10,18 @@
 #pragma once
 #include "WTSMarcos.h"
 #include <stdint.h>
+#include <fmt/format.h>
 
 NS_WTP_BEGIN
+
+// clang-format off
+// This is required to format enum classes with fmt as they're not implicitly
+// convertible to int.
+// This operator has to be declared before including format.h and ostream.h.
+// We keep clang format disabled to avoid reordering and breaking things
+// https://github.com/fmtlib/fmt/issues/391
+template<typename T, typename std::enable_if_t<std::is_enum<T>::value, int> = 0>
+auto format_as(T s) { return fmt::underlying(s); }
 
 /*
  *	合约分类

@@ -25,15 +25,10 @@ ELSE(GNUCC)
 	IF(WIN32)
 		SET(LIBS
 			dl
-			boost_thread
-			boost_filesystem
 			ws2_32
 			)
 	ELSE(UNIX)
 		SET(LIBS
-			dl
-			boost_thread
-			boost_filesystem
 			)
 	ENDIF()
 ENDIF()

@@ -19,9 +19,6 @@ ADD_LIBRARY(ParserYD SHARED ${SRC})
 IF (MSVC)
 ELSE (GNUCC)
 	SET(LIBS
-		boost_thread
-		boost_filesystem
-		dl
 	)
 	TARGET_LINK_LIBRARIES(ParserYD ${LIBS})
 ENDIF()

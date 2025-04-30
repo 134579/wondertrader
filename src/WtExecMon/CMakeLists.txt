@@ -27,10 +27,7 @@ SET(LIBS
 IF (MSVC)
 ELSE (GNUCC)
 	LIST(APPEND LIBS
-		dl
-		pthread
-		boost_filesystem
-		boost_thread)
+		)
 	if(WIN32)
 		LIST(APPEND LIBS iconv)
 	ENDIF()

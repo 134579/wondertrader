@@ -20,9 +20,6 @@ ADD_LIBRARY(ParserCTPOpt SHARED ${SRC})
 IF (MSVC)
 ELSE (GNUCC)
 	SET(LIBS
-		boost_thread
-		boost_filesystem
-		dl
 	)
 	TARGET_LINK_LIBRARIES(ParserCTPOpt ${LIBS})
 ENDIF()

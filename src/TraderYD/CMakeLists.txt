@@ -20,9 +20,6 @@ ADD_LIBRARY(TraderYD SHARED ${SRC})
 IF(MSVC)
 ELSE(GNUCC)
 	SET(LIBS
-		boost_thread
-		boost_filesystem
-		dl
 	)
 	TARGET_LINK_LIBRARIES(TraderYD ${LIBS})
 ENDIF()

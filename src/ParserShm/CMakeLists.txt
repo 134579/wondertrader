@@ -22,13 +22,9 @@ IF(MSVC)
 ELSE(GNUCC)
 	IF (WIN32)
 		SET(LIBS
-			boost_thread
-            boost_filesystem
 		)
 	ELSE(UNIX)
 		SET(LIBS
-			boost_thread
-            boost_filesystem
 		)
 	ENDIF()
 ENDIF()

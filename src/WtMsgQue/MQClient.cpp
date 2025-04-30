@@ -17,8 +17,9 @@
 #ifndef NN_STATIC_LIB
 #define NN_STATIC_LIB
 #endif
-#include <nanomsg/nn.h>
-#include <nanomsg/pubsub.h>
+#include <nn.h>
+#include <pubsub.h>
+
 
 
 USING_NS_WTP;

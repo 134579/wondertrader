@@ -11,47 +11,14 @@ ENDIF ()
 
 MESSAGE(STATUS "Generator is ${CMAKE_GENERATOR}")
 
-IF (MSVC)
-	ADD_DEFINITIONS (-D_CRT_SECURE_NO_WARNINGS)
-	IF(CMAKE_CL_64)
-		SET(INCS $ENV{MyDepends141}/include)
-		SET(LNKS $ENV{MyDepends141}/lib/x64)
-
-		MESSAGE(STATUS "MyDepends is at $ENV{MyDepends141}")
-		MESSAGE(STATUS "Platform is x64")
-		SET(PLATFORM x64)
-	ELSE()
-		SET(INCS $ENV{MyDepends141}/include)
-		SET(LNKS $ENV{MyDepends141}/lib/x86)
-
-		MESSAGE(STATUS "MyDepends is at $ENV{MyDepends141}")
-		MESSAGE(STATUS "Platform is x86")
-		SET(PLATFORM x86)
-	ENDIF()
-	SET(PREFIX )
-	SET(SUFFIX .dll)
-ELSE (GNUCC)
-	IF(WIN32)
-		SET (MyDeps $ENV{MyDependsGcc})
-		SET(SUFFIX .dll)
-
-		MESSAGE(STATUS "MyDepends is at $ENV{MyDependsGcc}")
-	ELSE(UNIX)
-		SET (MyDeps "/home/mydeps")
-		SET(SUFFIX .so)
-
-		MESSAGE(STATUS "MyDepends is at /home/mydeps")
-	ENDIF()
-
-	SET(INCS ${MyDeps}/include)
-	SET(LNKS ${MyDeps}/lib)
-
-	MESSAGE(STATUS "Platform is x64")
-	SET(PLATFORM x64)
-	SET(PREFIX lib)
-ENDIF()
+SET(INCS "")
+SET(LNKS "")
 
 SET(CMAKE_CXX_STANDARD 17)
+
+# find_package(Boost REQUIRED COMPONENTS filesystem asio smart_ptr utility)
+# add_library(boost_filesystem ALIAS Boost::filesystem)
+# link_libraries(Boost::asio Boost::smart_ptr Boost::filesystem Boost::utility fmt)
 
 #basic libraries
 ADD_SUBDIRECTORY(WTSUtils)
