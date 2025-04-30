@@ -16,7 +16,13 @@ set(SPDLOG_FMT_EXTERNAL ON)
 CPMAddPackage("gh:gabime/spdlog#v1.13.0")
 
 
-CPMAddPackage("gh:nanomsg/nanomsg#1.2.1")
+CPMAddPackage(
+  NAME nanomsg
+  GITHUB_REPOSITORY nanomsg/nanomsg
+  GIT_TAG 1.2.1
+  OPTIONS "NN_STATIC_LIB ON"
+)
+
 target_include_directories(nanomsg PUBLIC ${nanomsg_SOURCE_DIR}/src)
 
 link_libraries(fmt)
