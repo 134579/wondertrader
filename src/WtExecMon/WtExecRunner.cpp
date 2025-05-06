@@ -11,8 +11,9 @@
 #include "../Includes/WTSVariant.hpp"
 #include "../Share/CodeHelper.hpp"
 #include "../Share/ModuleHelper.hpp"
+#include "../Share/StdUtils.hpp"
 #include "../Share/TimeUtils.hpp"
-#include "../WTSUtils/SignalHook.hpp"
+#include "../WTSUtils/SignalHook.hpp""
 
 #ifdef _MSC_VER
 #include "../Common/mdump.h"

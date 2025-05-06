@@ -32,7 +32,6 @@
 #include "../Share/TimeUtils.hpp"
 #include "../Share/CodeHelper.hpp"
 
-#include <exception>
 #include <rapidjson/document.h>
 #include <rapidjson/prettywriter.h>
 

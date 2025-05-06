@@ -1,7 +1,7 @@
 add_compile_options(-fPIC)
 
 set(BOOST_ENABLE_CMAKE ON)
-set(BOOST_INCLUDE_LIBRARIES "asio;smart_ptr;utility;filesystem;thread")
+set(BOOST_INCLUDE_LIBRARIES "asio;smart_ptr;utility;filesystem;thread;interprocess;xpressive;circular_buffer;property_tree")
 set(BOOST_CHARCONV_NO_QUADMATH ON)
 CPMAddPackage(
   NAME Boost
@@ -25,10 +25,7 @@ CPMAddPackage(
 
 target_include_directories(nanomsg PUBLIC ${nanomsg_SOURCE_DIR}/src)
 
+link_libraries(Boost::asio Boost::smart_ptr Boost::filesystem Boost::utility Boost::thread Boost::interprocess Boost::xpressive Boost::circular_buffer Boost::property_tree)
 link_libraries(fmt)
 link_libraries(spdlog)
 link_libraries(nanomsg)
-link_libraries(Boost::asio Boost::smart_ptr Boost::filesystem Boost::utility Boost::thread)
-
-# add_library(boost_filesystem ALIAS Boost::filesystem)
-# add_library(boost_thread ALIAS Boost::thread)
