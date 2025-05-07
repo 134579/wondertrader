@@ -1,19 +1,15 @@
 add_compile_options(-fPIC)
 
-set(BOOST_ENABLE_CMAKE ON)
+add_compile_definitions(BOOST_BIND_GLOBAL_PLACEHOLDERS)
 set(BOOST_INCLUDE_LIBRARIES "asio;smart_ptr;utility;filesystem;thread;interprocess;xpressive;circular_buffer;property_tree")
-set(BOOST_CHARCONV_NO_QUADMATH ON)
 CPMAddPackage(
   NAME Boost
   URL https://github.com/boostorg/boost/releases/download/boost-1.86.0/boost-1.86.0-cmake.tar.xz
-  # OPTIONS "BUILD_SHARED_LIBS ON BUILD_STATIC_LIBS OFF"
+  OPTIONS "BOOST_ENABLE_CMAKE ON"
 )
 
-
-
 CPMAddPackage("gh:fmtlib/fmt#10.2.1")
-set(SPDLOG_FMT_EXTERNAL ON)
-CPMAddPackage("gh:gabime/spdlog#v1.13.0")
+CPMAddPackage(URI "gh:gabime/spdlog#v1.13.0" OPTIONS "SPDLOG_FMT_EXTERNAL ON")
 
 
 CPMAddPackage(

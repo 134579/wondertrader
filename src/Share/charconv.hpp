@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <cstring>
 #include <stdlib.h>
 #include <string>
 #ifdef _MSC_VER
@@ -27,7 +28,7 @@ public :
 		else if (0 == *utf8_string)
 		{
 			needFree = false;
-			t_string = ("");
+			t_string = 0;
 		}
 		else if ( isPureAscii(utf8_string))
 		{
@@ -121,7 +122,7 @@ public :
 			utf8_string = 0;
 		else if (0 == *t_string)
 		{
-			utf8_string = "";
+			utf8_string = 0;
 			needFree = false;
 		}
 		else if (isPureAscii((char *)t_string))
